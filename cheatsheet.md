@@ -166,3 +166,42 @@ Choose one of the following methods:
 - Create a relation for every entity, using FK to refer subclasses to superclass
 - put every entities in one relation, adding attributes to identify the subclass to which a tuple belongs to
 - Create a relation for every entity in a total inheritance, but not for superclass
+
+# Relational Model and Integrity Constraints
+
+## Domain constrains
+
+Set of values that an attribute can take for every attributes
+
+- SQL has built-in types (int, varchar, date, etc.)
+- Range restrictions can be added with CHECK constraints
+
+## Key constraints
+
+Identify a row uniquely in a table
+
+### Superkey
+
+$$\text{Given a relation over schema } R(A_1, ..., A_n) \text{ a set of attributes } \mathcal{K} \subseteq \{A_1, ..., A_n\} \text{is a superkey for } R \iff \forall \text{pair of different tuples} t_1 \text{ and } t_2 \in R \text{ it holds that } \exist A \in \mathcal{K} : t_1 . A \neq t_2 . A$$
+
+- A key is a minimal superkey
+- If a relation has multiple keys, all keys are called candidate keys
+
+### FK constraint
+
+When a relation A refers to the PK of another relation B, A never contains values that are not present in B
+
+### Constraint violation
+
+Default behavior is to reject the operation
+
+## Transactions and ACID properties
+
+A transaction is a sequence of operations that are executed in a ACID way
+
+### ACID
+
+- **Atomicity** : a transaction is an atomic unit, either all operations are executed or none.
+- **Consistency** : after transaction, all integrity constraints are satisfied.
+- **Isolation** : transactions are isolated from each other, concurrent transactions do not interfere with each other.
+- **Durability** : once a transaction is committed, its effects are permanent, even in case of (power) failure.
