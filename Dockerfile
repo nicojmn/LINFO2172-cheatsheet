@@ -8,7 +8,7 @@ RUN npm install
 RUN npm run compile
 
 FROM nginx:alpine
-COPY --from=builder /app/cheatsheet.html /usr/share/nginx/html/index.html
+COPY --from=builder /app/out/cheatsheet.html /usr/share/nginx/html/index.html
 
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
