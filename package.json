@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "markdown-it": "^14.1.0",
+    "markdown-it-mermaid-plugin": "^0.1.0"
+  },
+  "scripts": {
+    "compile": "node compile.js"
+  }
+}
