@@ -202,6 +202,22 @@ Choose one of the following methods:
 
 # Relational Model and Integrity Constraints
 
+## Mindmap
+
+```mermaid
+mindmap
+  root((RM and Integrity Constraints))
+    Type of constraints
+      Domain constraints
+      Key constraints
+    Superkey : a set of attributes that can uniquely identify a row in a table
+    ACID properties
+      Atomicity : a transaction is an atomic unit
+      Consistency : after transaction, all constraints are satisfied
+      Isolation : transactions are isolated from each other
+      Durability : once a transaction is committed, its effects are permanent
+```
+
 ## Domain constrains
 
 Set of values that an attribute can take for every attributes
