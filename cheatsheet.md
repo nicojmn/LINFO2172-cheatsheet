@@ -101,6 +101,12 @@ erDiagram
 - Don't forget to add primary keys (PK) and foreign keys (FK).
 - Composite keys : keys made of multiple attributes
 - Multi-valued attributes : attributes that represent a set of values.
+
+<img src="img/01/crowsfoot_notation.png" alt="ER crow's foot Notation" width="500">
+
+- When having a many to many relationship you cannot directly represent it in a database so you create a middle table
+
+<img src="img/01/manytomanyERalt.png" alt="Many to many relation alternative" width="500">
   
 ## Weak entities
 
