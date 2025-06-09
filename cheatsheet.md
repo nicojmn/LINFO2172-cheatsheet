@@ -182,7 +182,9 @@ Identify a row uniquely in a table
 
 ### Superkey
 
-$$\text{Given a relation over schema } R(A_1, ..., A_n) \text{ a set of attributes } \mathcal{K} \subseteq \{A_1, ..., A_n\} \text{is a superkey for } R \iff \forall \text{pair of different tuples} t_1 \text{ and } t_2 \in R \text{ it holds that } \exist A \in \mathcal{K} : t_1 . A \neq t_2 . A$$
+$$\text{Given a relation over schema } R(A_1, ..., A_n) \text{ a set of attributes } \mathcal{K} \subseteq \{A_1, ..., A_n\} \newline
+\text{is a superkey for } R \iff \forall \text{pair of different tuples} t_1 \text{ and } t_2 \in R \text{ it holds that }
+\exists A \in \mathcal{K} : t_1 . A \neq t_2 . A$$
 
 - A key is a minimal superkey
 - If a relation has multiple keys, all keys are called candidate keys

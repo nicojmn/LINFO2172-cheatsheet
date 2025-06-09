@@ -1,7 +1,6 @@
 {
   "dependencies": {
-    "markdown-it": "^14.1.0",
-    "markdown-it-mermaid-plugin": "^0.1.0"
+    "crossnote": "^0.9.14"
   },
   "scripts": {
     "compile": "node compile.js"

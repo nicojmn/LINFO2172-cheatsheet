@@ -1,33 +1,40 @@
+const {Notebook } = require('crossnote');
+const path = require('path');
 const fs = require('fs');
-const md = require('markdown-it')();
-const mermaidPlugin = require('markdown-it-mermaid-plugin');
 
-md.use(mermaidPlugin);
+const workdir = path.resolve(__dirname);
 
-const inputFile = 'cheatsheet.md';
-const outputFile = 'out/cheatsheet.html';
+async function main() {
+  const notebook = await Notebook.init({
+    notebookPath: workdir,
+    config: {
+      previewTheme: 'github-light.css',
+      mathRenderingOption: 'KaTeX',
+      codeBlockTheme: 'github.css',
+      printBackground: true,
+      enableScriptExecution: true, // <= For running code chunks.
 
-let mermaid = md.render(fs.readFileSync(inputFile, 'utf8'));
-let html = `
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Databases cheatsheet</title>
-  <style>
-    body { font-family: sans-serif; margin: 2em; }
-  </style>
-  <script type="module">
-    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
-    mermaid.initialize({ startOnLoad: true });
-  </script>
-</head>
-<body>
-  ${mermaid}
-</body>
-</html>
-`;
-if (!fs.existsSync('out')) {
-    fs.mkdirSync('out');
+      chromePath: '/path/to/chrome', // <= For puppeteer export and open in browser locally.
+      // Recommended to use the absolute path of Chrome executable.
+    },
+  });
+
+  // Get the markdown engine for a specific note file in your notebook.
+  const engine = notebook.getNoteMarkdownEngine('cheatsheet.md');
+
+  // html export
+  await engine.htmlExport({ offline: false, runAllCodeChunks: true });
+
+  if (!fs.existsSync(path.join(workdir, 'out'))) {
+    fs.mkdirSync(path.join(workdir, 'out'));
+  }
+
+  const inp = path.join(workdir, 'cheatsheet.html');
+  const out = path.join(`${workdir}/out/cheatsheet.html`);
+  fs.renameSync(inp, out);
+  console.log(`HTML file generated at: ${out}`);
+
+  return process.exit(0);
 }
-fs.writeFileSync(outputFile, html, 'utf8');
+
+main();

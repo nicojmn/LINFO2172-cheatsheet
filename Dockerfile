@@ -3,6 +3,7 @@ FROM node:20 as builder
 WORKDIR /app
 COPY package*.json ./
 COPY compile.js ./
+COPY img/ ./img/
 COPY cheatsheet.md ./
 RUN npm install
 RUN npm run compile
