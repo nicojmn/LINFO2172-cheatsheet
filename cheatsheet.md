@@ -7,6 +7,28 @@ Source-code is available at [GitHub](https://github.com/nicojmn/LINFO2172-cheats
 
 # ER Diagrams
 
+## Mindmap
+
+```mermaid
+mindmap
+  root((ER Diagrams))
+    Type of design
+      Conceptual design
+      Physical design
+    Relationships multiplicity
+        1:1
+        M:N
+        1:N
+        Ternary
+        Constraining relationships
+    Enhanced ER Diagrams
+      Inheritance
+      Specialization and generalization
+    Conversion
+        Conceptual to physical design
+        EER to relational schemes
+```
+
 ## Conceptual design
 
 Visualization of information we conceptually plan to store, how we link tables isn't done here, just the entities and their attributes.
