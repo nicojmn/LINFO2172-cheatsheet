@@ -1,6 +1,11 @@
-# ER Diagrams
+# LINFO2172 Cheatsheet
+
+Cheatsheet for the LINFO2172 course at UCLouvain, covering the main concepts of the course. This isn't a complete summary
+and you should of course read the slides and refer to the course material for a complete understanding.
 
 Source-code is available at [GitHub](https://github.com/nicojmn/LINFO2172-cheatsheet). Feel free to contribute !
+
+# ER Diagrams
 
 ## Conceptual design
 
